@@ -53,5 +53,3 @@ class BardMe {
 		return $this->format( $inspiration, 'inspiring' );
 	}
 }
-
-$bard = new BardMe();
