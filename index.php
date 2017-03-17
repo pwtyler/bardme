@@ -23,7 +23,5 @@ $bard = new BardMe();
 		echo $bard->insult();
 		echo $bard->inspire();
 	?>
-	<?php //echo '<pre>'.print_r($bard->insult(), true).'</pre>'; ?>
-	<?php //echo '<pre>'.print_r($bard->inspire(), true).'</pre>'; ?>
 	</body>
 </html>
