@@ -17,7 +17,8 @@ class Barovians extends Randomizer {
 		}
 		$first_name = $this->choose_one($this->ima[$gender]);
 		$last_name = $this->get_last_name( $gender );
-		return ucfirst($first_name).' '.ucfirst($last_name);
+		$full_name = ucfirst($first_name).' '.ucfirst($last_name);
+		return $this->format( [ 'text' => $full_name ], $gender );
 	}
 
 	public function get_last_name( $gender ) {
