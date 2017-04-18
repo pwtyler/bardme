@@ -22,6 +22,8 @@ $barovians = new Barovians();
 		<blockquote class="text-center">
 			<h1>
 				<?php echo $barovians->generate('male'); ?>	
+			</h1>
+			<h1>
 				<?php echo $barovians->generate('female'); ?>	
 			</h1>
 		</blockquote>
