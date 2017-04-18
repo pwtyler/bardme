@@ -14,7 +14,7 @@ $barovians = new Barovians();
 		<style type="text/css">
 			*{
 				font-size: 20pt;
-				line-height: 20;
+				line-height: 2;
 			}
 		</style>
 	</head>
