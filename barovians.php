@@ -6,8 +6,9 @@ class Barovians extends Randomizer {
 	public $ima = array();
 
 	public function __construct() {
-		$this->familia = json_decode(file_get_contents(__DIR__.'/collections/barovia/familia.json'), true);
-		$this->ima = json_decode(file_get_contents(__DIR__.'/collections/barovia/ima.json'), true);
+		foreach (['familia', 'ima'] as $name_element) {
+			$this->$name_element = json_decode(file_get_contents(__DIR__.'/collections/barovia/'.$name_element.'.json'), true);
+		}
 	}
 
 	public function generate( $gender='' ) {
@@ -21,18 +22,13 @@ class Barovians extends Randomizer {
 
 	public function get_last_name( $gender ) {
 		$last_names = $this->familia['neutral'];
-		foreach ( $this->familia['ov'] as $name ) {
-			if ( $gender == 'male' ) {
-				$last_names[] = $name.'ov';
-			} else {
-				$last_names[] = $name.'ova';
-			}
-		}
-		foreach ( $this->familia['ovich'] as $name ) {
-			if ( $gender == 'male' ) {
-				$last_names[] = $name.'ovich';
-			} else {
-				$last_names[] = $name.'ovna';
+		$name_endings = array(
+			['male' => 'ovich', 'female' => 'ovna'],
+			['male' => 'ov',    'female' => 'ova' ],
+		);
+		foreach ($name_endings as $name_ending) {
+			foreach ( $this->familia[$name_ending['male']] as $name ) {
+				$last_names[] = $name . $name_ending[$gender];
 			}
 		}
 		return $this->choose_one($last_names);
