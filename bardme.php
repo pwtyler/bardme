@@ -1,11 +1,18 @@
 <?php
-class BardMe {
+
+include_once __DIR__.'/randomizer.php';
+
+class BardMe extends Randomizer {
 	public $inspiration;
 	public $insults;
 
 	public function __construct() {
+		$this->fetch_bard_lists();
+	}
+
+	public function fetch_bard_lists() {
 		foreach ([ 'inspiration', 'insults' ] as $collection) {
-			$raw = file_get_contents(__DIR__.'/'.$collection.'.txt');
+			$raw = file_get_contents( __DIR__ . '/collections/'.$collection.'.txt');
 			$this->$collection = explode("\n", $raw);
 		}
 	}
