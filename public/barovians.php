@@ -11,15 +11,12 @@ $barovians = new Barovians();
 		<title>Names for all you meet in Barovia</title>
 		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-		<style type="text/css">
-			*{
-				font-size: 20pt;
-				line-height: 2;
-			}
-		</style>
+		<link rel="stylesheet" type="text/css" href="../css/bardme.css">
 	</head>
 	<body>
-		<?php echo $barovians->generate('male'); ?>	
-		<?php echo $barovians->generate('female'); ?>	
+	<?php
+		echo $barovians->generate('male');
+		echo $barovians->generate('female');
+	?>	
 	</body>
 </html>

@@ -11,12 +11,7 @@ $bard = new BardMe();
 		<title>When Your Bard Needs to Mock and/or Inspire</title>
 		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-		<style type="text/css">
-			*{
-				font-size: 20pt;
-				line-height: 2;
-			}
-		</style>
+		<link rel="stylesheet" type="text/css" href="../css/bardme.css">
 	</head>
 	<body>
 	<?php
