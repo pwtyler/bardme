@@ -18,36 +18,22 @@ class BardMe extends Randomizer {
 	}
 
 	public function get_line( $collection ) {
-		if ($collection == 'insults') {
-			$insult = $this->insults[ mt_rand( 0, count( $this->insults ) - 1 ) ];
-		} else if ($collection == 'inspiration') {
-			$insult = $this->inspiration[ mt_rand( 0, count( $this->inspiration ) - 1 ) ];
+		// $line = $this->$collection[ mt_rand( 0, count( $this->$collection ) - 1 ) ];
+		if ( $collection == 'insults' ) {
+			$line = $this->insults[ mt_rand( 0, count( $this->insults ) - 1 ) ];
+		} else if ( $collection == 'inspiration' ) {
+			$line = $this->inspiration[ mt_rand( 0, count( $this->inspiration ) - 1 ) ];
 		}
-
-		if (stripos($insult, ' | ')) {
-			$explode = explode( ' | ', $insult );
-			$insult = array(
+		if ( stripos( $line, ' | ' ) ) {
+			$explode = explode( ' | ', $line );
+			$line = [
 				'text' => $explode[0],
 				'source' => $explode[1],
-			);
+			];
 		} else {
-			$insult = array( 'text' => $insult );
+			$line = [ 'text' => $line ];
 		}
-
-		return $insult;
-		return $this->$collection[ mt_rand( 0, count( $this->$collection ) - 1 ) ];
-	}
-
-	public function format( $quote, $type ) {
-	?>
-		<blockquote class="text-center">
-			<h1><?php echo ucfirst( $type ); ?>!</h1>
-			<p><?php echo $quote['text']; ?></p>
-			<?php if ( ! empty( $quote['source'] ) ) { ?>
-			<footer><?php echo $quote['source'] ?></footer>
-			<?php } ?>
-		</blockquote>
-	<?php
+		return $line;
 	}
 
 	public function insult() {
